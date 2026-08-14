@@ -11,6 +11,10 @@
 
 Harness Doctor 负责安装健康诊断；桌面控制工具负责执行 Windows 动作。本插件只产生可供 CI/审计复核的确定性 readiness 证据。
 
+DSH 入口采用只有 `name` / `inject` / `apply` 的 namespace plugin，不提供 default export。这是发布兼容性契约的一部分：stock Web profile 通过真实 Cordis Loader 加载 bundle 时必须保留 `tools` 注入；插件 smoke 和结构检查会阻止该回归再次出现。
+
+已有 DSH 构建和装入本 bundle 的隔离 Web profile 时，可运行 `DSH_CHECKOUT=/path/to/dsh DSH_HOME=/path/to/isolated-home npm run smoke:web-loader`。该 smoke 使用有界且不含凭据的环境启动真实 stock Web profile，并要求观察到实际 readiness URL。
+
 ```bash
 dsh-windows-readiness-proof verify --workspace . --manifest manifest.json --artifactDir artifacts
 ```

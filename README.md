@@ -38,6 +38,10 @@ Exit `0` means verified; exit `2` means a readiness or evidence failure.
 
 ## DSH / MCP tools
 
+The DSH entry is a namespace plugin (`name` / `inject` / `apply`) with no default export. This is part of the shipped compatibility contract: the real Cordis Loader must retain the `tools` injection when a stock Web profile loads the bundle. The plugin smoke and structural check fail if a default export is reintroduced.
+
+For a built DSH checkout and an isolated Web profile containing this bundle, run `DSH_CHECKOUT=/path/to/dsh DSH_HOME=/path/to/isolated-home npm run smoke:web-loader`. The smoke starts the real stock Web profile with a bounded, credential-free environment and requires an actual readiness URL.
+
 - `dsh_windows_readiness_inspect`
 - `dsh_windows_readiness_verify`
 - MCP aliases: `windows_readiness_inspect`, `windows_readiness_verify`

@@ -1,6 +1,6 @@
 {
   "name": "dsh-windows-readiness-proof",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Verify pinned, sanitized Windows enterprise observations for DSH readiness without changing the host.",
   "author": { "name": "2Origin", "url": "https://github.com/dongsheng123132" },
   "homepage": "https://github.com/dongsheng123132/dsh-windows-readiness-proof#readme",

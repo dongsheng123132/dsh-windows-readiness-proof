@@ -1,6 +1,6 @@
 {
   "name": "dsh-windows-readiness-proof",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Content-addressed readiness proof for sanitized DeepSeek Harness observations on managed Windows hosts",
   "license": "MIT",
   "type": "module",
@@ -12,7 +12,7 @@
   "peerDependencies": { "@deepseek-ai/dsh-tools": "*" },
   "peerDependenciesMeta": { "@deepseek-ai/dsh-tools": { "optional": true } },
   "devDependencies": { "@deepseek-ai/dsh-tools": "0.0.1-rc.1" },
-  "scripts": { "test": "node --test test/*.test.mjs", "check": "node scripts/check.mjs", "smoke:plugin": "node test/plugin-smoke.mjs", "smoke:mcp": "node test/mcp-smoke.mjs", "smoke:dsh": "node test/dsh-runtime-smoke.mjs" },
+  "scripts": { "test": "node --test test/*.test.mjs", "check": "node scripts/check.mjs", "smoke:plugin": "node test/plugin-smoke.mjs", "smoke:mcp": "node test/mcp-smoke.mjs", "smoke:dsh": "node test/dsh-runtime-smoke.mjs", "smoke:web-loader": "node test/stock-web-loader-smoke.mjs" },
   "engines": { "node": ">=22" },
   "repository": { "type": "git", "url": "git+https://github.com/dongsheng123132/dsh-windows-readiness-proof.git" },
   "keywords": ["deepseek-harness", "dsh", "dsh-plugin", "windows", "enterprise", "readiness", "evidence"]
