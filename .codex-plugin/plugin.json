@@ -1,12 +1,21 @@
 {
   "name": "dsh-windows-readiness-proof",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Verify pinned, sanitized Windows enterprise observations for DSH readiness without changing the host.",
-  "author": { "name": "2Origin", "url": "https://github.com/dongsheng123132" },
+  "author": {
+    "name": "2Origin",
+    "url": "https://github.com/dongsheng123132"
+  },
   "homepage": "https://github.com/dongsheng123132/dsh-windows-readiness-proof#readme",
   "repository": "https://github.com/dongsheng123132/dsh-windows-readiness-proof",
   "license": "MIT",
-  "keywords": ["deepseek-harness", "windows", "enterprise", "readiness", "evidence"],
+  "keywords": [
+    "deepseek-harness",
+    "windows",
+    "enterprise",
+    "readiness",
+    "evidence"
+  ],
   "mcpServers": "./.mcp.json",
   "interface": {
     "displayName": "DSH Windows Readiness Proof",
@@ -14,7 +23,12 @@
     "longDescription": "Evaluate a SHA-256-pinned, sanitized Windows host observation against explicit DSH runtime, policy, filesystem, service, connectivity and storage requirements without executing collectors or changing the host.",
     "developerName": "2Origin",
     "category": "Developer Tools",
-    "capabilities": ["Read", "Audit"],
-    "defaultPrompt": ["Verify this managed Windows DSH readiness manifest and show control gaps."]
+    "capabilities": [
+      "Read",
+      "Audit"
+    ],
+    "defaultPrompt": [
+      "Verify this managed Windows DSH readiness manifest and show control gaps."
+    ]
   }
 }
