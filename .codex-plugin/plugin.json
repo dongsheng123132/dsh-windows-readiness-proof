@@ -1,6 +1,6 @@
 {
   "name": "dsh-windows-readiness-proof",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Verify pinned, sanitized Windows enterprise observations for DSH readiness without changing the host.",
   "author": {
     "name": "2Origin",

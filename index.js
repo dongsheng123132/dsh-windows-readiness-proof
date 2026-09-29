@@ -1,10 +1,10 @@
-import { defineTool } from '@deepseek-ai/dsh-tools'
 import { inspectWindowsReadiness, verifyWindowsReadiness } from './lib/windows-readiness-proof.mjs'
 
 export const name = 'dsh-windows-readiness-proof'
 export const inject = ['tools']
 
 const renderJson = (_args, value) => [{ type: 'text', text: JSON.stringify(value, null, 2) }]
+const definition = (value) => ({ ...value, output: { schema: {}, render: renderJson } })
 const base = (config, args) => ({
   workspaceRoot: config.workspaceRoot ?? process.cwd(),
   manifestPath: args.manifestPath,
@@ -13,23 +13,18 @@ const base = (config, args) => ({
 
 export function createDefinitions(_ctx, config = {}) {
   return [
-    defineTool({
+    definition({
       name: 'dsh_windows_readiness_inspect',
       description: 'Inspect a pinned managed-Windows readiness policy without collecting or returning host observations.',
-      parameters: { manifestPath: { type: 'string', required: true } },
-      output: { schema: { type: 'json' }, render: renderJson },
+      parameters: { type: 'object', required: ['manifestPath'], properties: { manifestPath: { type: 'string' } }, additionalProperties: false },
       execute(args) {
         return inspectWindowsReadiness(base(config, args))
       },
     }),
-    defineTool({
+    definition({
       name: 'dsh_windows_readiness_verify',
       description: 'Verify sanitized Windows/DSH observations and emit a content-addressed readiness proof without modifying the host.',
-      parameters: {
-        manifestPath: { type: 'string', required: true },
-        artifactDir: { type: 'string', required: true },
-      },
-      output: { schema: { type: 'json' }, render: renderJson },
+      parameters: { type: 'object', required: ['manifestPath', 'artifactDir'], properties: { manifestPath: { type: 'string' }, artifactDir: { type: 'string' } }, additionalProperties: false },
       execute(args) {
         return verifyWindowsReadiness(base(config, args))
       },

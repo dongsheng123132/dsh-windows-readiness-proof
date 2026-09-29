@@ -40,6 +40,8 @@ Exit `0` means verified; exit `2` means a readiness or evidence failure.
 
 The DSH entry is a namespace plugin (`name` / `inject` / `apply`) with no default export. This is part of the shipped compatibility contract: the real Cordis Loader must retain the `tools` injection when a stock Web profile loads the bundle. The plugin smoke and structural check fail if a default export is reintroduced.
 
+Version 0.1.3 also removes the runtime import of `@deepseek-ai/dsh-tools`. The optional peer was not installed by DSH's isolated `github:` plugin installer, so a composed profile could list the plugin while its tool module failed to load. Tool definitions are now self-contained; installation and composition alone should not be mistaken for a successful tool call. The pinned 0.2.0 RC1 ToolRuntime smoke covers the latter at service level, not a full profile Loader or model-driven task.
+
 For a built DSH checkout and an isolated Web profile containing this bundle, run `DSH_CHECKOUT=/path/to/dsh DSH_HOME=/path/to/isolated-home npm run smoke:web-loader`. The smoke starts the real stock Web profile with a bounded, credential-free environment and requires an actual readiness URL.
 
 - `dsh_windows_readiness_inspect`
